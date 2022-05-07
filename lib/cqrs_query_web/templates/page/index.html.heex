@@ -1,0 +1,25 @@
+<section class="phx-hero">
+  <h1><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h1>
+  <p>Peace of mind from prototype to production</p>
+</section>
+
+<section class="row">
+      <article class="column">
+        <h2>Events</h2>
+        <ul>
+            <%= for item <- @events do %>
+              <li><%= item.event_id %>: <%= item.description  %> - Quantity: <%= item.qty %></li>
+            <% end %>
+        </ul>
+      </article>
+      <article class="column">
+        <h2>Product</h2>
+        <%= if @product != nil do %>
+          <div>
+            <p>SKU: <%= @product.sku %></p>
+            <p>Quantity: <%= @product.qty %> </p>
+            <p>Last event: <%= @product.last_event_id %> - <%= @product.last_event_description %></p>
+          </div>
+        <% end %>
+      </article>
+</section>
